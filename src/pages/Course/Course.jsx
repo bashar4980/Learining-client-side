@@ -7,12 +7,17 @@ function Course({course}) {
   return (
     <Col lg={4}>
     <Card>
-      <Card.Img variant="top" src={img} />
+      <Card.Img variant="top" className="w-100 h-100" src={img} />
       <Card.Body>
         <Card.Title>{course_Name}</Card.Title>
+        <Card.Title>Price: {price}</Card.Title>
         <Card.Text>
-         {author}
+        <p>Level:{level}</p>
         </Card.Text>
+        <Card.Text>
+        <p className="text-muted">Author: {author}</p>
+        </Card.Text>
+        
         <Button variant="primary">Details</Button>
       </Card.Body>
     </Card>

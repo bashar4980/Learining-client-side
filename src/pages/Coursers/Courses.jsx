@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import Course from '../Course/Course';
+import Category from '../CourseCategory/Category';
 
 const Courses = () => {
     const courseData = useLoaderData();
@@ -11,7 +12,9 @@ const Courses = () => {
           <Container fluid>
               <Row>
                 <Col lg={3}>
-                Course section
+                {
+                    courseData.map((course)=> <Category key={course.id} course={course}></Category>)
+                   }
                 </Col>
                 <Col lg={9}>
                <Container>
