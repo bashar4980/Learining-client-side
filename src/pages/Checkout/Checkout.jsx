@@ -5,7 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 
 const Checkout = () => {
   const course = useLoaderData();
-  const { id, img, course_Name, level, price, author, content } = course;
+  const {  course_Name , price} = course;
   return (
     <div>
       <h3 className="text-center py-3">Please Checkout your Course</h3>

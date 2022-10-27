@@ -17,6 +17,7 @@ function Header() {
           <Nav className="me-auto">
            
             <NavLink to="/courses">Courses</NavLink>
+            <NavLink to="/signup">Register</NavLink>
             <Nav.Link href="#pricing">FAQ</Nav.Link>
             <Nav.Link href="#pricing">Blog</Nav.Link>
             

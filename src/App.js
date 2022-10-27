@@ -5,6 +5,7 @@ import Banner from './pages/Banner/Banner';
 import Checkout from './pages/Checkout/Checkout';
 import CourseDetails from './pages/CourseDetails/CourseDetails';
 import Courses from './pages/Coursers/Courses';
+import SignUp from './pages/SignUp/SignUp';
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
           return fetch(`http://localhost:5000/courses/${params.id}`)
        },
         element:<Checkout></Checkout>
+      },
+      {
+        path:"/signup",
+        element:<SignUp></SignUp>
       }
     ]
   }
