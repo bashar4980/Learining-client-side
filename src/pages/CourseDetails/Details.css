@@ -1,0 +1,16 @@
+.card_text{
+    font-size: 20px;
+    text-align: justify;
+  }
+  .detailsButton{
+    margin: 4px;
+    padding: 10px 25px;
+    font-weight: bold;
+  }
+  .detailsButton:hover{
+    background-color: transparent;
+    color: #0B5ED7;
+
+    border-color: #0B5ED7;
+    transition: 0.5s;
+  }

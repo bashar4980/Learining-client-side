@@ -9,7 +9,10 @@ const Courses = () => {
    
     return (
       
-          <Container fluid>
+         <>
+         <h3 className='text-center py-3'>All Courses</h3>
+
+<Container fluid>
               <Row>
                 <Col lg={3}>
                 {
@@ -28,6 +31,8 @@ const Courses = () => {
             </Row>
           </Container>
  
+         
+         </>
     );
 };
 
