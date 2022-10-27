@@ -1,0 +1,20 @@
+.banner_text h1{
+    font-size: 50px;
+}
+.banner_text p{
+    font-size: 20px;
+    text-align: justify;
+}
+
+.banner_text .button{
+    padding: 12px 35px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.banner_text .button:hover{
+    background-color: transparent;
+    color: #0B5ED7;
+
+    border-color: #0B5ED7;
+    transition: 0.5s;
+}
