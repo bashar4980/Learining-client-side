@@ -1,12 +1,12 @@
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './Details.css'
 
 function CourseDetails() {
     const course = useLoaderData();
-    const {img, course_Name , level , price, author, content}=course;
+    const {id ,img, course_Name , level , price, author, content}=course;
   return (
     <Container>
       <h3 className='text-center'>Learn About {course_Name}</h3>
@@ -19,16 +19,17 @@ function CourseDetails() {
         <Card.Title>Level: {level}</Card.Title>
         <Card.Title>Author: {author}</Card.Title>
         
-        <div className=''>
-        <Button variant="primary" className="detailsButton">Download</Button>
-        <Button variant="primary" className='detailsButton'>Get Premium access</Button>
-        </div>
+      
 
 
     
         <Card.Text className="card_text pt-5">
           {content}
         </Card.Text>
+        <div className=''>
+        <Button variant="primary" className="detailsButton">Download</Button>
+        <Button variant="primary" className='detailsButton'><Link className="text-light" to={`/checkout/${id}`}>Get Premium access</Link></Button>
+        </div>
       </Card.Body>
     </Card>
     </Container>

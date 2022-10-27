@@ -27,10 +27,7 @@ const Banner = () => {
           </Col>
         </Row>
       </Container>
-      <div className="mt-5 text-center mb-0 pt-5 bg-light">
-  
-        <p>Copyright ©2022 All rights reserved</p>
-      </div>
+      
     </>
   );
 };

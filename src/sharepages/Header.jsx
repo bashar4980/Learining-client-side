@@ -4,15 +4,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 
 
+
 function Header() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light">
       <Container>
-        <Navbar.Brand href="#home">Learn Tech</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          
+          Learn Tech</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Courses</Nav.Link>
            
             <NavLink to="/courses">Courses</NavLink>
             <Nav.Link href="#pricing">FAQ</Nav.Link>
