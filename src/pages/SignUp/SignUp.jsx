@@ -12,10 +12,30 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 
 const SignUp = () => {
-const {providerLogin }=useContext(AuthContext)
+const {providerLogin , createUser}=useContext(AuthContext)
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
+const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+
+    createUser(email,password)
+    .then((result)=>{
+        const user=result.user;
+        console.log(user);
+        form.reset()
+    })
+    .catch(error=>{
+        console.error(error.message)
+    })
+    
+}
 //sign in google
 const userSignupWithgoogle=()=>{
     providerLogin(googleProvider)
@@ -48,36 +68,33 @@ const userSignupWithgithub=()=>{
             <Button onClick={userSignupWithgoogle}><FaGoogle /> SignUp with Gmail</Button>
              <Button onClick={userSignupWithgithub}><FaGithub /> SignUp With GitHub</Button>
             </div>
-            <Form>
+            <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Your Name</Form.Label>
+                <Form.Control name="name" type="text" placeholder="Your Name" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Photo URL</Form.Label>
+                <Form.Control name="photoURL" type="text" placeholder="Phot URL" />
+            </Form.Group>
 
-              <Form.Group className="mb-3" >
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="text" name="name"placeholder="Enter your name" />
-              
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>Photo:</Form.Label>
-                <Form.Control type="text" name="picture" placeholder="Enter your picture" />
-              
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" name="email" placeholder="Enter email" />
-              
-              </Form.Group>
+                <Form.Control name="email" type="email" placeholder="Enter email" required />
+            </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" name="password" placeholder="Password" />
-              </Form.Group>
+                <Form.Control name="password" type="password" placeholder="Password" required />
+            </Form.Group>
             
-              <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" >
                 Register
-              </Button>
-              <p><span>Already have account? <Link to="/loging">Login</Link></span></p>
-            </Form>
+            </Button>
+
+            
+           
+        </Form>
             </Card>
           </Col>
         </Row>
