@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UserContext from './userContext/UserContext';
+import AuthProvider from './userContext/AuthProvider';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <UserContext>
+  <React.StrictMode>
+  <AuthProvider>
     <App/>
-  </UserContext>
+  </AuthProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

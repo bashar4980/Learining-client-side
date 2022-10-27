@@ -1,15 +1,41 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { FaGoogle , FaGithub} from 'react-icons/fa';
-import { AuthContext } from "../../userContext/UserContext";
+import { useContext } from "react";
+import { AuthContext } from "../../userContext/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+
 
 
 
 const SignUp = () => {
-    const {usersignUpwithGoogle}=useContext(AuthContext)
+const {providerLogin }=useContext(AuthContext)
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
+
+//sign in google
+const userSignupWithgoogle=()=>{
+    providerLogin(googleProvider)
+    .then(result=>{
+        const user = result.user;
+        console.log(user)
+    })
+    .catch(error=> console.error(error))
+}
+//sign in google end
+//sign in github
+const userSignupWithgithub=()=>{
+    providerLogin(githubProvider)
+    .then(result=>{
+        const user = result.user;
+        console.log(user)
+    })
+    .catch(error=> console.error(error))
+}
+//signin github
   return (
     <div>
       <Container>
@@ -19,8 +45,8 @@ const SignUp = () => {
           <Col lg={6} className="mx-auto">
             <Card className="p-3">
             <div className="signUp d-flex justify-content-center gap-2 fw-bold">
-            <Button onClick={usersignUpwithGoogle}><FaGoogle /> SignUp with Gmail</Button>
-             <Button><FaGithub /> SignUp With GitHub</Button>
+            <Button onClick={userSignupWithgoogle}><FaGoogle /> SignUp with Gmail</Button>
+             <Button onClick={userSignupWithgithub}><FaGithub /> SignUp With GitHub</Button>
             </div>
             <Form>
 
