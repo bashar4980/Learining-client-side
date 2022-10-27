@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink , Link } from 'react-router-dom';
 import { AuthContext } from '../userContext/AuthProvider';
-// import { FaUserAlt } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import { Image , Button } from 'react-bootstrap';
 
 
@@ -36,17 +36,26 @@ function Header() {
           </Nav>
           <Nav>
             <Nav.Link href="#deets">
-              {
-                user?.photoURL && <Image
-                style={{ height: '30px' }}
-                roundedCircle
-                src={user?.photoURL} title={user?.displayName && user.displayName}>
-                </Image>
-              }
+              
+            {user?.photoURL &&
+                                <Image
+                                    style={{ height: '30px' }}
+                                    roundedCircle 
+                                    src={user?.photoURL} title={user.displayName}> 
+                                  </Image>
+                                
+                            }
+              
             </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
              {
-              user?.uid ?  <Button variant="light" onClick={handleLogOut}>Log out</Button>
+              user?.uid ?  <>
+               {
+                !user?.photoURL && <FaUser></FaUser>
+               }
+               <Button variant="light" onClick={handleLogOut}>Log out</Button>
+              
+              </>
                           : <>
                            <Button variant="light"><Link to="/signin">Login</Link></Button>
                            <Button variant="light"><Link to="/signup">SignUp</Link></Button>
