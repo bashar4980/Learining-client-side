@@ -21,7 +21,7 @@ function Header() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand>
           
           Learn Tech</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -30,7 +30,8 @@ function Header() {
            
             <NavLink to="/courses">Courses</NavLink>
             <NavLink to="/signup">Register</NavLink>
-            <Nav.Link href="#pricing">FAQ</Nav.Link>
+            <NavLink to="/blog">Blog</NavLink>
+            
             <Nav.Link href="#pricing">Blog</Nav.Link>
             
           </Nav>

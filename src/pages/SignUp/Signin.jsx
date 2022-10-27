@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -11,7 +12,8 @@ import { AuthContext } from "../../userContext/AuthProvider";
 
 
 const Signin = () => {
-const {signIn}=useContext(AuthContext)
+const {signIn}=useContext(AuthContext);
+const [error , setError] = useState(null) 
 
 const handleSubmit = event => {
     event.preventDefault();
@@ -25,7 +27,9 @@ const handleSubmit = event => {
         form.reset()
 
     })
-    .catch(error=>console.error(error.message))
+    .catch(error=>{
+      setError(error.message)
+      })
 
    
     
@@ -57,6 +61,9 @@ const handleSubmit = event => {
             <Button variant="primary" type="submit" >
                 Register
             </Button>
+            {
+              <p className="text-danger">{error}</p>
+            }
             <p>You don't account?<Link to="/signup">Register</Link></p>
 
             

@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './layout/Main';
 import Banner from './pages/Banner/Banner';
+import Blog from './pages/Blog';
 import Checkout from './pages/Checkout/Checkout';
 import CourseDetails from './pages/CourseDetails/CourseDetails';
 import Courses from './pages/Coursers/Courses';
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path:"/signin",
         element:<Signin></Signin>
+      },
+      {
+        path:"/blog",
+        element:<Blog></Blog>
       }
     ]
   }
