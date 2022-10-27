@@ -12,7 +12,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 
 const SignUp = () => {
-const {providerLogin , createUser}=useContext(AuthContext)
+const {providerLogin , createUser,updateUserProfile}=useContext(AuthContext)
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
@@ -29,12 +29,23 @@ const handleSubmit = event => {
     .then((result)=>{
         const user=result.user;
         console.log(user);
+        handleUpdateUserProfile(name, photoURL);
         form.reset()
     })
     .catch(error=>{
         console.error(error.message)
     })
     
+}
+const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+        displayName: name,
+        photoURL: photoURL
+    }
+
+    updateUserProfile(profile)
+        .then(() => { })
+        .catch(error => console.error(error));
 }
 //sign in google
 const userSignupWithgoogle=()=>{
@@ -69,11 +80,11 @@ const userSignupWithgithub=()=>{
              <Button onClick={userSignupWithgithub}><FaGithub /> SignUp With GitHub</Button>
             </div>
             <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" >
                 <Form.Label>Your Name</Form.Label>
                 <Form.Control name="name" type="text" placeholder="Your Name" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" >
                 <Form.Label>Photo URL</Form.Label>
                 <Form.Control name="photoURL" type="text" placeholder="Phot URL" />
             </Form.Group>
@@ -91,7 +102,7 @@ const userSignupWithgithub=()=>{
             <Button variant="primary" type="submit" >
                 Register
             </Button>
-
+         <p>Alerady have a account?<Link to="/signin">Login</Link></p>
             
            
         </Form>

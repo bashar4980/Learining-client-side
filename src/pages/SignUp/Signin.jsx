@@ -1,22 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 
+import { AuthContext } from "../../userContext/AuthProvider";
 
 
 
 
-const SignUp = () => {
 
+const Signin = () => {
+const {signIn}=useContext(AuthContext)
 
 const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    signIn(email,password)
+    .then((result)=>{
+        const user = result.user;
+        console.log(user);
+        form.reset()
 
+    })
+    .catch(error=>console.error(error.message))
 
    
     
@@ -48,6 +57,7 @@ const handleSubmit = event => {
             <Button variant="primary" type="submit" >
                 Register
             </Button>
+            <p>You don't account?<Link to="/signup">Register</Link></p>
 
             
            
@@ -60,4 +70,4 @@ const handleSubmit = event => {
   );
 };
 
-export default SignUp;
+export default Signin;
