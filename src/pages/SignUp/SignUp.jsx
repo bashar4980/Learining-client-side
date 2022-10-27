@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { FaGoogle , FaGithub} from 'react-icons/fa';
+import { AuthContext } from "../../userContext/UserContext";
+
 
 
 const SignUp = () => {
+    const {usersignUpwithGoogle}=useContext(AuthContext)
   return (
     <div>
       <Container>
         <h3 className="text-center pt-5">Please Registration</h3>
+    
         <Row className="py-5">
           <Col lg={6} className="mx-auto">
             <Card className="p-3">
             <div className="signUp d-flex justify-content-center gap-2 fw-bold">
-            <Button> SignUp with Gmail</Button>
-             <Button>SignUp With GitHub</Button>
+            <Button onClick={usersignUpwithGoogle}><FaGoogle /> SignUp with Gmail</Button>
+             <Button><FaGithub /> SignUp With GitHub</Button>
             </div>
             <Form>
 
