@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function Course({course}) {
     const {id,img, course_Name , level , price, author}=course;
   return (
-    <Col lg={4}>
+    <Col lg={4} md={6}>
     <Card>
       <Card.Img variant="top" className="w-100 h-100" src={img} />
       <Card.Body>

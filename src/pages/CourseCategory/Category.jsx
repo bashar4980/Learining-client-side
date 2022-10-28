@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Category = ({course}) => {
 
     return (
-        <div>
+        <div className="mb-3">
     <ListGroup variant="primary" as="ol"  >
       <ListGroup.Item className="fw-bold"><Link to={`/courses/${course.id}`}>{course.course_Name}</Link></ListGroup.Item>
      

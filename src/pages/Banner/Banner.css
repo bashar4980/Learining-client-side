@@ -18,3 +18,12 @@
     border-color: #0B5ED7;
     transition: 0.5s;
 }
+@media screen and (max-width:580px){
+    .banner_text h1{
+        font-size: 30px!important;
+    }
+    .banner_text p{
+        font-size: 18px!important;
+        text-align: justify;
+    }
+}

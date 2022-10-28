@@ -41,7 +41,7 @@ function Header() {
               Faq
             </NavLink>
           </Nav>
-          <Nav>
+          <Nav >
             <Nav.Link title={user?.displayName}>
               {user?.photoURL && (
                 <Image

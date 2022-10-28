@@ -72,9 +72,9 @@ const userSignupWithgithub=()=>{
         <Row className="py-5">
           <Col lg={6} className="mx-auto">
             <Card className="p-3">
-            <div className="signUp d-flex justify-content-center gap-2 fw-bold">
-            <Button onClick={userSignupWithgoogle}><FaGoogle /> Signin with Gmail</Button>
-             <Button onClick={userSignupWithgithub}><FaGithub /> Signin With GitHub</Button>
+            <div className="signUp d-flex justify-content-center gap-2 mb-2 fw-bold">
+            <Button onClick={userSignupWithgoogle}>Signin <FaGoogle /></Button>
+             <Button onClick={userSignupWithgithub}>Signin <FaGithub /></Button>
             </div>
             
             <Form onSubmit={handleSubmit}>

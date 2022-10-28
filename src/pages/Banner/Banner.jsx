@@ -7,7 +7,7 @@ const Banner = () => {
     <>
       <Container className="py-5">
         <Row className="align-items-center">
-          <Col className="banner_text">
+          <Col className="banner_text" lg={6} md={6}>
             {/* Bannner content */}
             <h1>Learn without limits</h1>
             <p>
@@ -18,7 +18,7 @@ const Banner = () => {
             <Button className="button">Join Now</Button>
           </Col>
 
-          <Col>
+          <Col lg={6} md={6}>
             <img
               className="w-100 d-block"
               src="https://img.freepik.com/free-vector/female-student-listening-webinar-online_74855-6461.jpg"

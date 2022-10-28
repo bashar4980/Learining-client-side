@@ -15,9 +15,11 @@ const Courses = () => {
 <Container fluid>
               <Row>
                 <Col lg={3}>
+                <Container>
                 {
                     courseData.map((course)=> <Category key={course.id} course={course}></Category>)
                    }
+                </Container>
                 </Col>
                 <Col lg={9}>
                <Container>
