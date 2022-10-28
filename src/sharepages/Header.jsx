@@ -31,8 +31,9 @@ function Header() {
             <NavLink to="/courses">Courses</NavLink>
             <NavLink to="/signup">Register</NavLink>
             <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/faq">Faq</NavLink>
             
-            <Nav.Link href="#pricing">Blog</Nav.Link>
+            
             
           </Nav>
           <Nav>

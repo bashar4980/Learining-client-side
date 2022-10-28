@@ -6,6 +6,7 @@ import Blog from './pages/Blog';
 import Checkout from './pages/Checkout/Checkout';
 import CourseDetails from './pages/CourseDetails/CourseDetails';
 import Courses from './pages/Coursers/Courses';
+import Faq from './pages/Faq';
 import PrivateRoute from './pages/privateRoute/PrivateRoute';
 import Signin from './pages/SignUp/Signin';
 import SignUp from './pages/SignUp/SignUp';
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path:"/blog",
         element:<Blog></Blog>
+      } ,
+      {
+        path:'/faq',
+        element:<Faq></Faq>
       }
     ]
   }
