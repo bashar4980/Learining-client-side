@@ -18,3 +18,12 @@ a{
 .white-content {
   background: #e4e4e4;
 }
+
+.light{
+  background-color: #fff;
+  color: #000;
+}
+.dark{
+  background-color: black;
+  color: #fff;
+}

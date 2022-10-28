@@ -3,8 +3,9 @@ import { useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaGoogle, FaGithub } from "react-icons/fa";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../userContext/AuthProvider";
 
 
@@ -12,8 +13,13 @@ import { AuthContext } from "../../userContext/AuthProvider";
 
 
 const Signin = () => {
-const {signIn}=useContext(AuthContext);
-const [error , setError] = useState(null) 
+const {signIn , providerLogin}=useContext(AuthContext);
+const [error , setError] = useState(null) ;
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
+const location = useLocation();
+const navigate = useNavigate()
+const from = location.state?.from?.pathname || '/';
 
 const handleSubmit = event => {
     event.preventDefault();
@@ -24,7 +30,8 @@ const handleSubmit = event => {
     .then((result)=>{
         const user = result.user;
         console.log(user);
-        form.reset()
+        form.reset();
+        navigate(from, {replace: true})
 
     })
     .catch(error=>{
@@ -34,7 +41,28 @@ const handleSubmit = event => {
    
     
 }
-
+//sign in google
+const userSignupWithgoogle=()=>{
+  providerLogin(googleProvider)
+  .then(result=>{
+      const user = result.user;
+      console.log(user);
+      navigate(from, {replace: true})
+  })
+  .catch(error=> console.error(error))
+}
+//sign in google end
+//sign in github
+const userSignupWithgithub=()=>{
+  providerLogin(githubProvider)
+  .then(result=>{
+      const user = result.user;
+      console.log(user);
+      navigate(from, {replace: true})
+  })
+  .catch(error=> console.error(error))
+}
+//signin github
 //signin github
   return (
     <div>
@@ -44,6 +72,10 @@ const handleSubmit = event => {
         <Row className="py-5">
           <Col lg={6} className="mx-auto">
             <Card className="p-3">
+            <div className="signUp d-flex justify-content-center gap-2 fw-bold">
+            <Button onClick={userSignupWithgoogle}><FaGoogle /> Signin with Gmail</Button>
+             <Button onClick={userSignupWithgithub}><FaGithub /> Signin With GitHub</Button>
+            </div>
             
             <Form onSubmit={handleSubmit}>
             
@@ -59,7 +91,7 @@ const handleSubmit = event => {
             </Form.Group>
             
             <Button variant="primary" type="submit" >
-                Register
+                Login
             </Button>
             {
               <p className="text-danger">{error}</p>

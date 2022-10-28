@@ -5,9 +5,10 @@ const Blog = () => {
   return (
     <div>
       <Container>
-        <Row>
+        <h2 className="text-center py-5">Some Important Question...</h2>
+        <Row className="g-2">
           <Col lg={6}>
-            <Card>
+            <Card style={{height:"250px"}}className="p-3">
               <Card.Title>What Is CORS?</Card.Title>
               <Card.Text>
                 Cross-origin resource sharing (CORS) is a browser mechanism
@@ -21,7 +22,7 @@ const Blog = () => {
             </Card>
           </Col>
           <Col lg={6}>
-          <Card>
+          <Card style={{height:"250px"}}className="p-3">
               <Card.Title>Why are you using firebase? What other options do you have to implement authentication?</Card.Title>
               <Card.Text>
                 Firebase Use for Hosting and Authentication Purspose.It is third party app for give authentication in our Website.Apart From Firebase we have other options like Oauth,Octa,Aws
@@ -30,7 +31,7 @@ const Blog = () => {
           </Col>
 
           <Col lg={6}>
-          <Card>
+          <Card style={{height:"250px"}}className="p-3">
               <Card.Title>How does the Private Routes Word?</Card.Title>
               <Card.Text>
               The private route component is used to protect selected pages in a React app from unauthenticated users.
@@ -39,7 +40,7 @@ const Blog = () => {
             </Card>
           </Col>
           <Col lg={6}>
-          <Card>
+          <Card style={{height:"250px"}}className="p-3">
               <Card.Title>What is Node? How does Node work??</Card.Title>
               <Card.Text>
               Node is a Javascript Runtime it is used to Run Javascript in server ,for a long time Javascript was used in the server side but a creative programmer decided to use it use it on the server side he took the the V8 engine of chrome and added some C++ code and boom it is the new Node js it is consist of call stack,queue,memory,Event loop ,Thread pool event loop is a very complicated thing call stack takes the code and runs it immedietely then it calls the queue if any code is incomplete to run the event is resposible to call the fisrt one from queue to call stack
