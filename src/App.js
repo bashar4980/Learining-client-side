@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './layout/Main';
+import NotFound from './pages/404page.jsx/NotFound';
 import Banner from './pages/Banner/Banner';
 import Blog from './pages/Blog';
 import Checkout from './pages/Checkout/Checkout';
@@ -57,9 +58,14 @@ const router = createBrowserRouter([
       {
         path:'/faq',
         element:<Faq></Faq>
+      },
+      {
+        path:"*",
+        element:<NotFound></NotFound>
       }
     ]
   }
+ 
 ])
 
 const App = () => {
