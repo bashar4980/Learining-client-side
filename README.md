@@ -2,7 +2,7 @@
 ### Name: Learn Tech
 ### Live Link: [https://e-learning-cb6fd.web.app/]
 ### Serverside code: [https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-bashar4980]
-### CLient Side: [https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-bashar4980]
+### CLient Side: [https://github.com/bashar4980/Learining-client-side.git]
 
 
 
